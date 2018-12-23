@@ -10,9 +10,11 @@ export class AppComponent {
 	
 	title = 'image-grid-scroller';
 	data;
+	loading: boolean = false;
 	constructor(private service: FlickrService) { }
 
 	find(query) {
+		this.loading = true;
 		this.service.search(query).subscribe(result => {
 			this.data = result;
 			this.makeDataGreatAgain()
@@ -26,11 +28,14 @@ export class AppComponent {
 	makeDataGreatAgain() {
 		let array = this.data.photos.photo
 		console.log(array)
-		while (array.length < 10000) {
-			array.length + this.data.photos.photo.length
-			array = array.concat(this.data.photos.photo)
-			console.log(array.length, array)
-			this.data.photos.photo = array
+		if (array.length < 10000){
+			while (array.length < 10000) {
+				array.length + this.data.photos.photo.length
+				array = array.concat(this.data.photos.photo)
+				console.log(array.length, array)
+				this.data.photos.photo = array
+			}this.loading=false;
 		}
+		
 	}
 }

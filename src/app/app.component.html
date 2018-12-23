@@ -9,12 +9,16 @@
 	<button (click)="find(search.value)">find me</button>
 </div>
 <div>
+	<div class="loading" *ngIf="loading">loading...</div>
 	<div class="grid">
 		<div class="img__container" *ngFor="let img of data.photos.photo">
+				
 			<img class="img__img" src="https://farm{{img.farm}}.staticflickr.com/{{img.server}}/{{img.id}}_{{img.secret}}.jpg"
 			 alt="" srcset="">
 			<div class="img__img--description">
-				{{img.title}}
+				<!-- sometimes = empty string-->
+				<div *ngIf="img.title != ''">{{img.title}}</div>
+				<div *ngIf="img.title == ''">{{search.value}}</div>
 			</div>
 			<h1>{{img.id}}</h1>
 		</div>
