@@ -2,6 +2,9 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+/**
+ * just plain text so compodoc doesn's complain
+ */
 export const environment = {
   production: false
 };

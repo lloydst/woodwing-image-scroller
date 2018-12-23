@@ -1,18 +1,37 @@
 import { Component } from '@angular/core';
 import { FlickrService } from './services/flickr.service';
 
+/**
+ * grid scroller component
+ */
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html'
 
 })
 export class AppComponent {
-	
+	/**
+	 * title just a random string to put in the h1 tag
+	 */
 	title = 'image-grid-scroller';
+	/**
+	 * data displayed by template, retrived from FlickrService, and added too by make data great again
+	 */
 	data;
+	/**
+	 * visual rep. that the images are being loaded
+	 */
 	loading: boolean = false;
+	/**
+	 * constructor
+	 * @param service Flickerservice
+	 */
 	constructor(private service: FlickrService) { }
 
+	/**
+	 * retrieves the data the user asks for
+	 * @param query user query, example: cats
+	 */
 	find(query) {
 		this.loading = true;
 		this.service.search(query).subscribe(result => {
@@ -20,10 +39,9 @@ export class AppComponent {
 			this.makeDataGreatAgain()
 		})
 	}
-	/*
+	/**
 	 * function keeps increasing the items in the array untill the required amount is reached
 	 * right now if it overshoots it will showcase those as well
-	 *
 	 */
 	makeDataGreatAgain() {
 		let array = this.data.photos.photo
