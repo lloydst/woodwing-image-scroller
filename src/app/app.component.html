@@ -13,10 +13,11 @@
 	
 	<div class="grid">
 		<div class="img__container" *ngFor="let img of data.photos.photo">
-			<img class="img__img" src="https://farm{{img.farm}}.staticflickr.com/{{img.server}}/{{img.id}}_{{img.secret}}.jpg" alt="" srcset="" [title]="img.title">
-			<div class="image__description_layer">
-				<p class="img__description">{{img.id}}</p>
+			<img class="img__img" src="https://farm{{img.farm}}.staticflickr.com/{{img.server}}/{{img.id}}_{{img.secret}}.jpg" alt="" srcset="">
+			<div class="img__img--description">
+				{{img.title}}
 			</div>
+			{{img.id}}
 		</div>
 	</div>
 
