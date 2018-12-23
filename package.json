@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json",
-    "e2e": "ng e2e"
+	"e2e": "ng e2e",
+	"githubpages": "ng build --prod --output-path docs --base-href /woodwing-image-scroller/ "
   },
   "private": true,
   "dependencies": {
