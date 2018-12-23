@@ -1,15 +1,24 @@
+.logo {
+	width:300px;
+}
 .grid {
-	margin-left:5vw;
-	margin-top:1em;
-	width:90vw;
+	max-width: calc(100vw-2em);
 	display: grid;
+	margin-left:1em;
+	grid-gap:0px;
+	@include bp(mobile) {
+		grid-gap:5px;
+		margin-left:5vw;
+		margin-top:1em;
+		width:90vw;
+	}
 	grid-template-columns: repeat(auto-fill,180px);
 	
 }
 .img__container {
 	position: relative;
-	 .img__img {
-		 display: block;
+	.img__img {
+		display: block;
 		width: 180px;
 		height:200px;
 		&--description {

@@ -7,9 +7,9 @@ import { FlickrService } from './services/flickr.service';
 
 })
 export class AppComponent {
+	
 	title = 'image-grid-scroller';
 	data;
-	photoArray;
 	constructor(private service: FlickrService) { }
 
 	find(query) {
@@ -18,6 +18,11 @@ export class AppComponent {
 			this.makeDataGreatAgain()
 		})
 	}
+	/*
+	 * function keeps increasing the items in the array untill the required amount is reached
+	 * right now if it overshoots it will showcase those as well
+	 *
+	 */
 	makeDataGreatAgain() {
 		let array = this.data.photos.photo
 		console.log(array)
