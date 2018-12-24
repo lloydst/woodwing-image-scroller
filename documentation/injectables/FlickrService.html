@@ -256,7 +256,7 @@ export class FlickrService {
 	 * @param query the query the user is looking for
 	 */
 	 search(query) {
-		return this.http.get(&#x60;https://api.flickr.com/services/rest/?method&#x3D;flickr.photos.search&amp;api_key&#x3D;d6a1aa97224149e56c4040d841545f15&amp;tags&#x3D;${query}&amp;per_page&#x3D;500&amp;format&#x3D;json&amp;nojsoncallback&#x3D;1&#x60;)
+		return this.http.get(&#x60;https://api.flickr.com/services/rest/?method&#x3D;flickr.photos.search&amp;api_key&#x3D;d6a1aa97224149e56c4040d841545f15&amp;extras&#x3D;description%2Cowner_name&amp;tags&#x3D;${query}&amp;per_page&#x3D;500&amp;format&#x3D;json&amp;nojsoncallback&#x3D;1&#x60;)
 		}
 
 }

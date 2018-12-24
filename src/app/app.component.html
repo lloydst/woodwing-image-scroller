@@ -12,15 +12,16 @@
 	<div class="loading" *ngIf="loading">loading...</div>
 	<div class="grid">
 		<div class="img__container" *ngFor="let img of data.photos.photo">
-				
-			<img class="img__img" src="https://farm{{img.farm}}.staticflickr.com/{{img.server}}/{{img.id}}_{{img.secret}}.jpg"
-			 alt="" srcset="">
-			<div class="img__img--description">
-				<!-- sometimes = empty string-->
-				<div *ngIf="img.title != ''">{{img.title}}</div>
-				<div *ngIf="img.title == ''">{{search.value}}</div>
+			<div class="img__container--vertical" [title]="img.description._content || 'description was empty'">
+				<img class="img__img" src="https://farm{{img.farm}}.staticflickr.com/{{img.server}}/{{img.id}}_{{img.secret}}.jpg" alt="" srcset="">
+				<!-- <div class="img__img--description">
+					
+					<div *ngIf="img.title != ''">{{img.title}} by {{img.ownername}}</div>
+					<div *ngIf="img.title == ''">{{search.value}} by {{img.ownername}}</div>
+				</div> -->
+				<p>{{img.title}}</p>
 			</div>
-			<h1>{{img.id}}</h1>
+			
 		</div>
 	</div>
 

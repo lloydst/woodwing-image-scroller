@@ -554,15 +554,16 @@ export class AppComponent {
 	&lt;div class&#x3D;&quot;loading&quot; *ngIf&#x3D;&quot;loading&quot;&gt;loading...&lt;/div&gt;
 	&lt;div class&#x3D;&quot;grid&quot;&gt;
 		&lt;div class&#x3D;&quot;img__container&quot; *ngFor&#x3D;&quot;let img of data.photos.photo&quot;&gt;
-				
-			&lt;img class&#x3D;&quot;img__img&quot; src&#x3D;&quot;https://farm{{img.farm}}.staticflickr.com/{{img.server}}/{{img.id}}_{{img.secret}}.jpg&quot;
-			 alt&#x3D;&quot;&quot; srcset&#x3D;&quot;&quot;&gt;
-			&lt;div class&#x3D;&quot;img__img--description&quot;&gt;
-				&lt;!-- sometimes &#x3D; empty string--&gt;
-				&lt;div *ngIf&#x3D;&quot;img.title !&#x3D; &#x27;&#x27;&quot;&gt;{{img.title}}&lt;/div&gt;
-				&lt;div *ngIf&#x3D;&quot;img.title &#x3D;&#x3D; &#x27;&#x27;&quot;&gt;{{search.value}}&lt;/div&gt;
+			&lt;div class&#x3D;&quot;img__container--vertical&quot; [title]&#x3D;&quot;img.description._content || &#x27;description was empty&#x27;&quot;&gt;
+				&lt;img class&#x3D;&quot;img__img&quot; src&#x3D;&quot;https://farm{{img.farm}}.staticflickr.com/{{img.server}}/{{img.id}}_{{img.secret}}.jpg&quot; alt&#x3D;&quot;&quot; srcset&#x3D;&quot;&quot;&gt;
+				&lt;!-- &lt;div class&#x3D;&quot;img__img--description&quot;&gt;
+					
+					&lt;div *ngIf&#x3D;&quot;img.title !&#x3D; &#x27;&#x27;&quot;&gt;{{img.title}} by {{img.ownername}}&lt;/div&gt;
+					&lt;div *ngIf&#x3D;&quot;img.title &#x3D;&#x3D; &#x27;&#x27;&quot;&gt;{{search.value}} by {{img.ownername}}&lt;/div&gt;
+				&lt;/div&gt; --&gt;
+				&lt;p&gt;{{img.title}}&lt;/p&gt;
 			&lt;/div&gt;
-			&lt;h1&gt;{{img.id}}&lt;/h1&gt;
+			
 		&lt;/div&gt;
 	&lt;/div&gt;
 
@@ -596,7 +597,7 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!--The content below is only a placeholder and can be replaced.--><div style="text-align:center">	<h1>		Welcome to {{ title }}!	</h1>	<img class="logo" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">	<p>search below to view images from flickr: you can also use "," to seperate multiple query\'s.</p>	<input type="text" placeholder="search" #search>	<button (click)="find(search.value)">find me</button></div><div>	<div class="loading" *ngIf="loading">loading...</div>	<div class="grid">		<div class="img__container" *ngFor="let img of data.photos.photo">							<img class="img__img" src="https://farm{{img.farm}}.staticflickr.com/{{img.server}}/{{img.id}}_{{img.secret}}.jpg"			 alt="" srcset="">			<div class="img__img--description">				<!-- sometimes = empty string-->				<div *ngIf="img.title != \'\'">{{img.title}}</div>				<div *ngIf="img.title == \'\'">{{search.value}}</div>			</div>			<h1>{{img.id}}</h1>		</div>	</div></div><!-- not used in this project <router-outlet></router-outlet>--></div>'
+        var COMPONENT_TEMPLATE = '<div><!--The content below is only a placeholder and can be replaced.--><div style="text-align:center">	<h1>		Welcome to {{ title }}!	</h1>	<img class="logo" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">	<p>search below to view images from flickr: you can also use "," to seperate multiple query\'s.</p>	<input type="text" placeholder="search" #search>	<button (click)="find(search.value)">find me</button></div><div>	<div class="loading" *ngIf="loading">loading...</div>	<div class="grid">		<div class="img__container" *ngFor="let img of data.photos.photo">			<div class="img__container--vertical" [title]="img.description._content || \'description was empty\'">				<img class="img__img" src="https://farm{{img.farm}}.staticflickr.com/{{img.server}}/{{img.id}}_{{img.secret}}.jpg" alt="" srcset="">				<!-- <div class="img__img--description">										<div *ngIf="img.title != \'\'">{{img.title}} by {{img.ownername}}</div>					<div *ngIf="img.title == \'\'">{{search.value}} by {{img.ownername}}</div>				</div> -->				<p>{{img.title}}</p>			</div>					</div>	</div></div><!-- not used in this project <router-outlet></router-outlet>--></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};

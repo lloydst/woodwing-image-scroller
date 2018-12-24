@@ -36,6 +36,10 @@
 	grid-template-columns: repeat(auto-fill,180px);
 	
 }
+.img__container--vertical {
+	display:grid;
+	grid-template-rows: 200px 50px;
+}
 .img__container {
 	position: relative;
 	.img__img {

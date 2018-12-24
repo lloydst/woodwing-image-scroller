@@ -31,19 +31,44 @@
                    <div class="content-data">
 
 <h1 id="imagegridscroller">ImageGridScroller</h1>
-<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 7.1.4.</p>
+<p>the project can be found at <a href="https://lloydst.github.io/woodwing-image-scroller/">github pages</a>
+This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 7.1.4.</p>
+<h2 id="first-time-running-the-project">first time running the project</h2>
+<p>Run <code>git clone https://github.com/lloydst/woodwing-image-scroller.git .</code> to get the source code in the folder your cl is at.
+Then run ng serve after that to view the project at <code>http://localhost:4200</code></p>
 <h2 id="development-server">Development server</h2>
-<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</p>
-<h2 id="code-scaffolding">Code scaffolding</h2>
-<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
-<h2 id="build">Build</h2>
-<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory. Use the <code>--prod</code> flag for a production build.</p>
-<h2 id="running-unit-tests">Running unit tests</h2>
-<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
-<h2 id="running-end-to-end-tests">Running end-to-end tests</h2>
-<p>Run <code>ng e2e</code> to execute the end-to-end tests via <a href="http://www.protractortest.org/">Protractor</a>.</p>
-<h2 id="further-help">Further help</h2>
-<p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://github.com/angular/angular-cli/blob/master/README.md">Angular CLI README</a>.</p>
+<p>Run <code>ng serve</code> for a local version. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</p>
+<h2 id="docs">docs</h2>
+<p>If you have compodoc installed globaly you can simply run: <code>compodoc -s</code> considering you have run <code>npm run compodoc</code> at least once, compodocs (instal)docs are located <a href="https://compodoc.app/guides/installation.html">here</a></p>
+<h2 id="assignment">assignment</h2>
+<p>&#10003; Goal: Implement an image grid that displays 10.000 images with fluid and smooth scrolling</p>
+<p>Deadline: 20:00 CEST Monday 24th December. All code and documentation should have been submitted by this time and Github details shared to this email address (including cc&#39;s).</p>
+<p>Prerequisites: Needs to be built with Angular. Additional frameworks, plugins, etc. are allowed but only if it adds value.</p>
+<p>Datasource: Get the data from an external source*. If, for example, the data source returns 20 items you are allowed to copy these items 500 times to obtain the 10.000 items. Feel free to use a different source if that suits you better, but the source needs to provide an image, a title and a description.</p>
+<p>Specifications: The images need to be displayed as tiles in a grid. The width and height of the tiles are fixed, e.g. width 180px - height 250px. The number of columns depends on the width of the screen. The tiles need to have some space between them. The tile itself shows the image and the title. When hovering over the tile, it should show a tooltip with the description of the image. The grid should allow to scroll vertically to the bottom of the list in a fluid, smooth way.</p>
+<p>Before you begin: Shortly write down how you want to approach this assignment.</p>
+<ul>
+<li>make a api call</li>
+<li>transform the data to comply to the assignment</li>
+<li>display the data in a for loop with css grid implementation</li>
+<li>infinite scroll?</li>
+</ul>
+<p>Code: Put the source code in a GitHub repository so you can describe per commit what you did and why.</p>
+<p><a href="https://github.com/lloydst/woodwing-image-scroller">github</a></p>
+<p>When done or when the time runs out: Write down what you think could be improved.
+improvements: </p>
+<ul>
+<li>&#10003; search funtionality (instead of static data like the assignment semi-suggested)</li>
+<li>i agree with the set width of images but the set heigth makes for some squished/ stretced images but didn&#39;t change that. to comply to the assignment.</li>
+<li>like i mentioned in a comment on one of my commits i could have used a for loop too make 10000 items out of the 500 returned by the api call. by that would cause a slight issue in that. If less then 500 are returned as a response there would be less then 10000 items. so using .slice(0, 9999) after the while loop has finished would always return 10k items.</li>
+<li>like you can see in &#39;the before you begin&#39; i thought about infinite scroll but decided against it as i had <ol>
+<li>i never used it (kinda why i wanted to use it)<ol start="2">
+<li>you mentioned smooth vertical scroll and infinite scroll often takes to long to be called &#39;smooth&#39;  </li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
 
 
 
